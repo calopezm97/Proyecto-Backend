@@ -5,6 +5,7 @@ spring:
   cloud:
     config:
       server:
+        bootstrap: true
         git:
           uri: https://github.com/calopezm97/Proyecto-Backend.git
           searchPaths: config-data
