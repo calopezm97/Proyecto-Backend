@@ -17,10 +17,6 @@ spring:
     password:
   jpa:
     show-sql: true
-    hibernate.ddl-auto: validate
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
   sleuth:
     traceId128: true
     sampler:
@@ -36,7 +32,7 @@ eureka:
         preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://${LOCALHOST}:8079/eureka/
+      defaultZone: http://${LOCALHOST}:8090/eureka/
 management:
   endpoints:
     web:

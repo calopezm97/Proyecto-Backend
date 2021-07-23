@@ -1,8 +1,14 @@
 server:
   port: 8082
 spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: multimedia
+  application:
+    name: photo
+  cloud:
+    config:
+      uri: http://${LOCALHOST}:8080
+      username: root
+      password: s3cr3t
+  boot:
+    admin:
+      client:
+        url: http://${LOCALHOST}:8090

@@ -13,8 +13,8 @@ spring:
   data:
     mongodb:
       host: ${LOCALHOST}
-      port: 27018
-      database: multimedia
+      port: 27017
+      database: photo
   sleuth:
     traceId128: true
     sampler:
@@ -30,7 +30,7 @@ eureka:
       preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://${LOCALHOST}:8079/eureka/
+      defaultZone: http://${LOCALHOST}:8090/eureka/
 management:
   endpoints:
     web:
