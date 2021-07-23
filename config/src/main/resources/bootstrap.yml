@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+spring:
+  cloud:
+    config:
+      server:
+        bootstrap: true
+        git:
+          uri: https://github.com/calopezm97/Proyecto-Backend.git
+          default-label: main
+          clone-on-start: true
+          searchPaths: configdata
+          username: ${GIT_USER}
+          password: ${GIT_PASSWORD}
+  security:
+    user:
+      name: root
+      password: s3cr3t
