@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          uri: https://gitlab.com/carlos140797/proyecto-back.git
+          uri: https://github.com/calopezm97/Proyecto-Backend.git
           searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
