@@ -10,27 +10,29 @@ logging:
           servlet:
             DispatcherServlet: DEBUG
 spring:
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: microarchivo
-          uri: lb://microarchivo
-          predicates:
-            - Path=/archivos/**
-        - id: micropersona
-          uri: lb://micropersona
-          predicates:
-            - Path=/personas/**
+  data:
+    mongodb:
+      host: ${LOCALHOST}
+      port: 27018
+      database: multimedia
   sleuth:
     traceId128: true
     sampler:
       probability: 1.0
+  boot:
+    admin:
+      client:
+        instance:
+          prefer-ip: true
+          service-url: http://${LOCALHOST}:8077/
 eureka:
   instance:
       preferIpAddress: true
   client:
     serviceUrl:
       defaultZone: http://${LOCALHOST}:8079/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

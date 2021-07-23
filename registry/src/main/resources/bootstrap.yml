@@ -1,11 +1,9 @@
 server:
-  port: 8084
+  port: 8083
 spring:
   application:
-    name: gateway
+    name: registry
   cloud:
-    discovery:
-      enabled: true
     config:
       uri: http://${LOCALHOST}:8080
       username: root

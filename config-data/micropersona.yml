@@ -1,0 +1,52 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: DEBUG
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${LOCALHOST}:3306/users
+    username: root
+    password:
+  jpa:
+    show-sql: true
+    hibernate.ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  sleuth:
+    traceId128: true
+    sampler:
+      probability: 1.0
+  boot:
+    admin:
+      client:
+        instance:
+          prefer-ip: true
+          service-url: http://${LOCALHOST}:8090/
+eureka:
+  instance:
+        preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://${LOCALHOST}:8079/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+Feign:
+  hystrix:
+    enabled: true
+  circuitbreaker:
+    enabled: true
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"

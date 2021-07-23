@@ -11,7 +11,7 @@ spring:
           uri: https://github.com/calopezm97/Proyecto-Backend.git
           default-label: main
           clone-on-start: true
-          searchPaths: configdata
+          searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
   security:

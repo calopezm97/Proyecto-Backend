@@ -11,4 +11,4 @@ spring:
   boot:
     admin:
       client:
-        url: http://${LOCALHOST}:8077
+        url: http://${LOCALHOST}:8090
