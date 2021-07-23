@@ -21,14 +21,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 
 @RestController
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
-@RequestMapping(value = "/personas")
+@RequestMapping(value = "/user")
 public class UserController {
 
 	@Autowired
@@ -36,11 +33,10 @@ public class UserController {
 
 	@GetMapping(value = "/")
 	public ResponseEntity<List<UserDTO>> ListaDePersonas() {
-		return new ResponseEntity<List<UserDTO>>(userService.findAllUser(), HttpStatus.OK);
+		return new ResponseEntity<List<UserDTO>>(userService.findAllPersona(), HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<UserDTO> BuscarPersona(
+	@GetMapping(value = "/{id}")public ResponseEntity<UserDTO> BuscarPersona(
 			@ApiParam(value = "Identificador de la persona", required = true) @PathVariable("id") int id) {
 		return new ResponseEntity<UserDTO>(userService.findById(id), HttpStatus.OK);
 	}
@@ -64,21 +60,21 @@ public class UserController {
 	public ResponseEntity<Void> CrearPersona(
 			@ApiParam(value = "Un JSON de persona", required = true) @Valid @RequestBody UserDTO persona)
 			throws IOException {
-		userService.saveUser(persona);
+		userService.savePersona(persona);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 
 	@PutMapping(value = "/")
 	public ResponseEntity<Void> ActualizarPersona(
 			@ApiParam(value = "Un JSON de persona", required = true) @RequestBody UserDTO persona) {
-		userService.updateUser(persona);
+		userService.updatePersona(persona);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> EliminarPersona(
 			@ApiParam(value = "Identificador de la persona", required = true) @PathVariable("id") int id) {
-		userService.deleteUserById(id);
+		userService.deletePersonaById(id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 

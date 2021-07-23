@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8712e6de-aef4-49a0-b5b6-7f41b9a6d08b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../usermicro/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../usermicro/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/UsermicroApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/UsermicroApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/client/PhotoClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/client/PhotoClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/service/use/UserServiceUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/service/use/UserServiceUse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../usermicro/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../usermicro/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

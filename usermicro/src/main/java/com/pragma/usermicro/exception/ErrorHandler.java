@@ -1,4 +1,4 @@
-package com.pragma.usermicro.exception;
+package apragma.practica.exception;
 
 import java.util.Date;
 import java.util.HashMap;

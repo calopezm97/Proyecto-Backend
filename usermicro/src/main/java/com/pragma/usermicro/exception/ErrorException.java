@@ -1,4 +1,4 @@
-package com.pragma.usermicro.exception;
+package apragma.practica.exception;
 
 import org.springframework.http.HttpStatus;
 

@@ -14,10 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+
 @FeignClient(name = "photo", fallback = PhotoHystrixFallbackFactory.class)
 public interface PhotoClient {
 
-	public final String pathClient = "/photo";
+	public final String pathClient = "/archivos";
 
 	@PostMapping(value = pathClient + "/")
 	public ResponseEntity<Void> CrearArchivo(@Valid @RequestBody PhotoDTO archivo);
