@@ -1,0 +1,36 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: DEBUG
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: microarchivo
+          uri: lb://microarchivo
+          predicates:
+            - Path=/archivos/**
+        - id: micropersona
+          uri: lb://micropersona
+          predicates:
+            - Path=/personas/**
+  sleuth:
+    traceId128: true
+    sampler:
+      probability: 1.0
+eureka:
+  instance:
+      preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://${LOCALHOST}:8079/eureka/
