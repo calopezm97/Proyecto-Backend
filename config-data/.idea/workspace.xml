@@ -2,19 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8712e6de-aef4-49a0-b5b6-7f41b9a6d08b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/service/use/UserServiceUse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/UsermicroApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/client/PhotoClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/client/PhotoHystrixFallbackFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/dto/PhotoDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/dto/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/exception/ErrorException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/exception/ErrorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/exception/ErrorMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/service/use/UserServiceUse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../usermicro/src/test/java/com/pragma/usermicro/UsermicroApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../registry/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../user/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../photo/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../photo/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/PhotoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/PhotoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/controller/PhotoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/dto/PhotoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/dto/PhotoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/entity/PhotoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/entity/PhotoEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/serviceuse/PhotoServiceUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/serviceuse/PhotoServiceUse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../photo/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../photo/src/main/resources/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/UserApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/controller/PersonaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/dto/PersonaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/entity/PersonaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/repository/PersonaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/service/PersonaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/service/use/PersonaServiceUse.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +52,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../registry" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../usermicro" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

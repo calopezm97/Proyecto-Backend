@@ -3,7 +3,6 @@ package com.pragma.photo.dto;
 import javax.validation.constraints.NotEmpty;
 
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,19 +12,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ApiModel(description = "Detalles del archivo")
+@ApiModel(description = "Detalles de la foto")
 public class PhotoDTO {
 
-	@NotEmpty(message = "El identificador �nico no debe ser vac�o")
-	@ApiModelProperty(notes = "El identificador �nico del archivo")
+	@NotEmpty(message = "El identificador no debe ser vacio")
 	private String id;
 
-	@NotEmpty(message = "La data en base64 no deben ser vac�a")
-	@ApiModelProperty(notes = "Data en Base64 del archivo")
+	@NotEmpty(message = "La data en base64 no deben ser vacia")
 	private String data;
 	
-	@NotEmpty(message = "El tipo no deben ser vac�o")
-	@ApiModelProperty(notes = "El tipo del archivo (Eje: .jpg, .png...)")
+	@NotEmpty(message = "El tipo no deben ser vacio")
 	private String tipo;
 	
 }

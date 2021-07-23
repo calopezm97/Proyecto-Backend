@@ -27,7 +27,6 @@ public class PhotoServiceUse implements PhotoService {
 	@Override
 	@Transactional(readOnly = true)
 	public PhotoDTO findById(String id) {
-		// TODO Auto-generated method stub
 		Optional<PhotoEntity> archivoEntity = photoRepository.findById(id);
 		if (archivoEntity.isPresent()) {
 			return modelMapper.map(archivoEntity.get(), PhotoDTO.class);
@@ -39,7 +38,6 @@ public class PhotoServiceUse implements PhotoService {
 	@Override
 	@Transactional
 	public void savePhoto(PhotoDTO nuevo) {
-		// TODO Auto-generated method stub
 		if (photoRepository.existsById(nuevo.getId())) {
 			throw new ErrorException(HttpStatus.CONFLICT, "Ya existe el archivo");
 		} else {
@@ -50,7 +48,6 @@ public class PhotoServiceUse implements PhotoService {
 	@Override
 	@Transactional
 	public PhotoDTO updatePhoto(PhotoDTO nuevo) {
-		// TODO Auto-generated method stub
 		if (photoRepository.existsById(nuevo.getId())) {
 			photoRepository.save(modelMapper.map(nuevo, PhotoEntity.class));
 			return nuevo;
@@ -62,7 +59,6 @@ public class PhotoServiceUse implements PhotoService {
 	@Override
 	@Transactional
 	public boolean deletePhotoById(String id) {
-		// TODO Auto-generated method stub
 		if (photoRepository.existsById(id)) {
 			photoRepository.deleteById(id);
 			return true;
@@ -74,7 +70,6 @@ public class PhotoServiceUse implements PhotoService {
 	@Override
 	@Transactional(readOnly = true)
 	public List<PhotoDTO> findAllPhoto() {
-		// TODO Auto-generated method stub
 		List<PhotoDTO> archivosDTOList = null;
 		List<PhotoEntity> archivosEntityList = photoRepository.findAll();
 		if (archivosEntityList.isEmpty()) {
@@ -89,14 +84,12 @@ public class PhotoServiceUse implements PhotoService {
 	@Override
 	@Transactional(readOnly = true)
 	public boolean isPhotoExist(PhotoDTO nuevo) {
-		// TODO Auto-generated method stub
 		return photoRepository.existsById(nuevo.getId());
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public List<PhotoDTO> findByIdIn(List<String> ids) {
-		// TODO Auto-generated method stub
 		List<PhotoDTO> archivosDTOList = null;
 		List<PhotoEntity> archivosEntityList = photoRepository.findByIdIn(ids);
 		if (archivosEntityList.isEmpty()) {
