@@ -10,8 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 	
-	public Optional<UserEntity> findByDocumentotipoAndDocumentonumero(int documentoTipo,
-																	  String documentoNumero);
+	public Optional<UserEntity> findByDocumentotipoAndDocumentonumero(int documentoTipo, String documentoNumero);
 
 	public List<UserEntity> findByEdadGreaterThanEqual(Integer edad);
 
