@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8712e6de-aef4-49a0-b5b6-7f41b9a6d08b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/gatewayservice.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/photo-micro.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry-micro.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-micro.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_photo.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../config/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gateway/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../photo/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../photo/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microarchivo.yml" beforeDir="false" afterPath="$PROJECT_DIR$/photo.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/micropersona.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registryservice.yml" beforeDir="false" afterPath="$PROJECT_DIR$/registry.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
