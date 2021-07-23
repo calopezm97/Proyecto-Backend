@@ -12,7 +12,7 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${LOCALHOST}:3306/users
+    url: jdbc:mysql://localhost:3306/users
     username: root
     password:
   jpa:
@@ -30,13 +30,13 @@ spring:
       client:
         instance:
           prefer-ip: true
-          service-url: http://${LOCALHOST}:8090/
+          service-url: http://localhost:8090/
 eureka:
   instance:
         preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://${LOCALHOST}:8099/eureka/
+      defaultZone: http://localhost:8099/eureka/
 management:
   endpoints:
     web:
