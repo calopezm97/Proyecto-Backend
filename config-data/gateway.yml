@@ -1,7 +1,12 @@
 server:
+  port: 8080
   error:
     include-message: always
     include-binding-errors: always
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8099/eureka/
 logging:
   level:
     org:
@@ -28,9 +33,4 @@ spring:
     traceId128: true
     sampler:
       probability: 1.0
-eureka:
-  instance:
-      preferIpAddress: true
-  client:
-    serviceUrl:
-      defaultZone: http://${LOCALHOST}:8099/eureka/
+
