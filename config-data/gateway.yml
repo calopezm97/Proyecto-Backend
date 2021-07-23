@@ -33,4 +33,4 @@ eureka:
       preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://${LOCALHOST}:8079/eureka/
+      defaultZone: http://${LOCALHOST}:8761/eureka/

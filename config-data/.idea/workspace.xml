@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8712e6de-aef4-49a0-b5b6-7f41b9a6d08b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/microarchivo.yml" beforeDir="false" afterPath="$PROJECT_DIR$/photo.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/micropersona.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registryservice.yml" beforeDir="false" afterPath="$PROJECT_DIR$/registry.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/service/use/UserServiceUse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../registry/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../registry/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../user/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/UserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/controller/PersonaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/dto/PersonaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/entity/PersonaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/repository/PersonaRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/service/PersonaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user/src/main/java/com/pragma/user/service/use/PersonaServiceUse.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,5 +56,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

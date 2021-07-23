@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pragma.user.dto.PersonaDTO;
-import com.pragma.user.service.PersonaService;
+import com.pragma.user.dto.UserDTO;
+import com.pragma.user.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
@@ -28,11 +28,11 @@ import io.swagger.annotations.ApiResponses;
 
 @RestController
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
-@RequestMapping(value = "/personas")
-public class PersonaController {
+@RequestMapping(value = "/user")
+public class UserController {
 
 	@Autowired
-	private PersonaService personaService;
+	private UserService userService;
 
 	@GetMapping(value = "/")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Todo bien"),
@@ -40,8 +40,8 @@ public class PersonaController {
 			@ApiResponse(code = 403, message = "Prohibido el acceso"),
 			@ApiResponse(code = 404, message = "No encontrado") })
 	@ApiOperation(value = "Lista de todas las personas", notes = "Proporciona una lista de personas de la base de datos")
-	public ResponseEntity<List<PersonaDTO>> ListaDePersonas() {
-		return new ResponseEntity<List<PersonaDTO>>(personaService.findAllPersona(), HttpStatus.OK);
+	public ResponseEntity<List<UserDTO>> ListaDePersonas() {
+		return new ResponseEntity<List<UserDTO>>(userService.findAllUser(), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/{id}")
@@ -49,10 +49,10 @@ public class PersonaController {
 			@ApiResponse(code = 401, message = "No autorizado el acceso"),
 			@ApiResponse(code = 403, message = "Prohibido el acceso"),
 			@ApiResponse(code = 404, message = "No encontrado") })
-	@ApiOperation(value = "Busca una persona por identificador(id)", notes = "Porpocionar un identificador(id) para encontrar la persona a la que corresponde", response = PersonaDTO.class)
-	public ResponseEntity<PersonaDTO> BuscarPersona(
+	@ApiOperation(value = "Busca una persona por identificador(id)", notes = "Porpocionar un identificador(id) para encontrar la persona a la que corresponde", response = UserDTO.class)
+	public ResponseEntity<UserDTO> BuscarPersona(
 			@ApiParam(value = "Identificador de la persona", required = true) @PathVariable("id") int id) {
-		return new ResponseEntity<PersonaDTO>(personaService.findById(id), HttpStatus.OK);
+		return new ResponseEntity<UserDTO>(userService.findById(id), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/{idTipoDeDocumento}/{numeroDeDocumento}")
@@ -60,12 +60,12 @@ public class PersonaController {
 			@ApiResponse(code = 401, message = "No autorizado el acceso"),
 			@ApiResponse(code = 403, message = "Prohibido el acceso"),
 			@ApiResponse(code = 404, message = "No encontrado") })
-	@ApiOperation(value = "Busca una persona por id del tipo de docuemnto y n�mero de documento", notes = "Porpocionar un id del tipo de docuemnto y n�mero de documento para encontrar la persona a la que corresponde", response = PersonaDTO.class)
-	public ResponseEntity<PersonaDTO> BuscarPersona(
+	@ApiOperation(value = "Busca una persona por id del tipo de docuemnto y n�mero de documento", notes = "Porpocionar un id del tipo de docuemnto y n�mero de documento para encontrar la persona a la que corresponde", response = UserDTO.class)
+	public ResponseEntity<UserDTO> BuscarPersona(
 			@ApiParam(value = "Id del Tipo de documento", required = true) @PathVariable("idTipoDeDocumento") int idTipoDeDocumento,
 			@ApiParam(value = "N�mero de documento", required = true) @PathVariable("numeroDeDocumento") String numeroDeDocumento) {
-		return new ResponseEntity<PersonaDTO>(
-				personaService.findByDocumentotipoAndDocumentonumero(idTipoDeDocumento, numeroDeDocumento),
+		return new ResponseEntity<UserDTO>(
+				userService.findByDocumentotipoAndDocumentonumero(idTipoDeDocumento, numeroDeDocumento),
 				HttpStatus.OK);
 	}
 
@@ -74,10 +74,10 @@ public class PersonaController {
 			@ApiResponse(code = 401, message = "No autorizado el acceso"),
 			@ApiResponse(code = 403, message = "Prohibido el acceso"),
 			@ApiResponse(code = 404, message = "No encontrado") })
-	@ApiOperation(value = "Lista de personas mayores o iguales a la edad", notes = "Porpocionar una edad para obtener una lista las personas mayores o iguales a la edad", response = PersonaDTO.class)
-	public ResponseEntity<List<PersonaDTO>> BuscarPersonaa(
+	@ApiOperation(value = "Lista de personas mayores o iguales a la edad", notes = "Porpocionar una edad para obtener una lista las personas mayores o iguales a la edad", response = UserDTO.class)
+	public ResponseEntity<List<UserDTO>> BuscarPersonaa(
 			@ApiParam(value = "Edad para la condici�n", required = true) @PathVariable("edad") int edad) {
-		return new ResponseEntity<List<PersonaDTO>>(personaService.findByEdadGreaterThanEqual(edad), HttpStatus.OK);
+		return new ResponseEntity<List<UserDTO>>(userService.findByEdadGreaterThanEqual(edad), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/")
@@ -87,9 +87,9 @@ public class PersonaController {
 			@ApiResponse(code = 404, message = "No encontrado") })
 	@ApiOperation(value = "Crear una persona", notes = "Porpocionar los datos necesarios para crear una persona")
 	public ResponseEntity<Void> CrearPersona(
-			@ApiParam(value = "Un JSON de persona", required = true) @Valid @RequestBody PersonaDTO persona)
+			@ApiParam(value = "Un JSON de persona", required = true) @Valid @RequestBody UserDTO persona)
 			throws IOException {
-		personaService.savePersona(persona);
+		userService.saveUser(persona);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 
@@ -100,8 +100,8 @@ public class PersonaController {
 			@ApiResponse(code = 404, message = "No encontrado") })
 	@ApiOperation(value = "Actualizar una persona", notes = "Porpocionar el identificador(id) y dem�s datos necesarios para actualizar una persona")
 	public ResponseEntity<Void> ActualizarPersona(
-			@ApiParam(value = "Un JSON de persona", required = true) @RequestBody PersonaDTO persona) {
-		personaService.updatePersona(persona);
+			@ApiParam(value = "Un JSON de persona", required = true) @RequestBody UserDTO persona) {
+		userService.updateUser(persona);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
@@ -113,7 +113,7 @@ public class PersonaController {
 	@ApiOperation(value = "Elimina una persona por identificador(id)", notes = "Porpocionar el identificador(id) para eliminar una persona")
 	public ResponseEntity<Void> EliminarPersona(
 			@ApiParam(value = "Identificador de la persona", required = true) @PathVariable("id") int id) {
-		personaService.deletePersonaById(id);
+		userService.deleteUserById(id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 

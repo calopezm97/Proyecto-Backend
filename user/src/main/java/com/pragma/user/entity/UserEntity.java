@@ -21,8 +21,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "persona")
-public class PersonaEntity implements Serializable {
+@Table(name = "user")
+public class UserEntity implements Serializable {
 
 	/**
 	 * 
@@ -39,13 +39,13 @@ public class PersonaEntity implements Serializable {
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private DocumentoTipoEntity documentotipo;
 
-	private String documentonumero;
+	private String documentoNumero;
 	private int edad;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idciudadnacimiento")
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	private CiudadEntity ciudadnacimiento;
+	private CiudadEntity ciudadNacimiento;
 
 	private String idfoto;
 

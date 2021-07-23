@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @ApiModel(description = "Detalles de la persona")
-public class PersonaDTO {
+public class UserDTO {
 	
 	@ApiModelProperty(notes = "El identificador �nico de la persona")
 	private int id;
