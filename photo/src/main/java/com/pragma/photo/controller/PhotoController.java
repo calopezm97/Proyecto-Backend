@@ -29,24 +29,24 @@ import io.swagger.annotations.ApiParam;
 public class PhotoController {
 
 	@Autowired
-	private PhotoServiceUse archivoService;
+	private PhotoServiceUse photoService;
 
 	@GetMapping(value = "/")
 	public ResponseEntity<List<PhotoDTO>> ListaDeArchivos() {
-		return new ResponseEntity<List<PhotoDTO>>(archivoService.findAllPhoto(), HttpStatus.OK);
+		return new ResponseEntity<List<PhotoDTO>>(photoService.findAllPhoto(), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<PhotoDTO> BuscarArchivo(
 			@ApiParam(value = "Identificador del archivo", required = true) @PathVariable("id") String id) {
-		return new ResponseEntity<PhotoDTO>(archivoService.findById(id), HttpStatus.OK);
+		return new ResponseEntity<PhotoDTO>(photoService.findById(id), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/")
 	public ResponseEntity<Void> CrearArchivo(
 			@ApiParam(value = "Un JSON de archivo", required = true) @Valid @RequestBody PhotoDTO archivo)
 			throws IOException {
-		archivoService.savePhoto(archivo);
+		photoService.savePhoto(archivo);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 
 	}
@@ -54,14 +54,14 @@ public class PhotoController {
 	@PutMapping(value = "/")
 	public ResponseEntity<Void> ActualizArarchivo(
 			@ApiParam(value = "Un JSON de archivo", required = true) @RequestBody PhotoDTO archivo) {
-		archivoService.updatePhoto(archivo);
+		photoService.updatePhoto(archivo);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> EliminarArchivo(
 			@ApiParam(value = "Identificador del archivo", required = true) @PathVariable("id") String id) {
-		archivoService.deletePhotoById(id);
+		photoService.deletePhotoById(id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
@@ -69,7 +69,7 @@ public class PhotoController {
 	public ResponseEntity<List<PhotoDTO>> ListaDeArchivosIds(
 			@ApiParam(value = "Un JSON de archivo", required = true) @Valid @RequestBody List<String> ids)
 			throws IOException {
-		return new ResponseEntity<List<PhotoDTO>>(archivoService.findByIdIn(ids), HttpStatus.OK);
+		return new ResponseEntity<List<PhotoDTO>>(photoService.findByIdIn(ids), HttpStatus.OK);
 
 	}
 

@@ -26,162 +26,156 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserServiceUse implements UserService {
 
-	private final UserRepository personaRepository;
+	private final UserRepository userRepository;
 
-	private final PhotoClient archivoClient;
+	private final PhotoClient photoClient;
 
 	ModelMapper modelMapper = new ModelMapper();
 
 	@Override
 	@Transactional(readOnly = true)
 	public UserDTO findById(Integer id) {
-		Optional<UserEntity> personaEntity = personaRepository.findById(id);
-		if (personaEntity.isPresent()) {
-			UserDTO personaDTO = modelMapper.map(personaEntity.get(), UserDTO.class);
-			personaDTO.setFoto(archivoClient.BuscarArchivo(personaEntity.get().getIdfoto()).getBody());
-			return personaDTO;
+		Optional<UserEntity> userEntity = userRepository.findById(id);
+		if (userEntity.isPresent()) {
+			UserDTO userDTO = modelMapper.map(userEntity.get(), UserDTO.class);
+			userDTO.setFoto(photoClient.BuscarArchivo(userEntity.get().getIdfoto()).getBody());
+			return userDTO;
 		} else {
-			throw new ErrorException(HttpStatus.NOT_FOUND, "No existe la persona");
+			throw new ErrorException(HttpStatus.NOT_FOUND, "No existe el user");
 		}
 	}
 
 	@Override
 	@Transactional
-	public void savePersona(UserDTO persona) {
-		// TODO Auto-generated method stub
-		if (personaRepository.existsById(persona.getId())) {
-			throw new ErrorException(HttpStatus.CONFLICT, "Ya existe la persona");
+	public void saveUser(UserDTO user) {
+		if (userRepository.existsById(user.getId())) {
+			throw new ErrorException(HttpStatus.CONFLICT, "Ya existe el user");
 		} else {
-			UserEntity personaEntity = modelMapper.map(persona, UserEntity.class);
-			personaEntity.setIdfoto(persona.getFoto().getId());
+			UserEntity userEntity = modelMapper.map(user, UserEntity.class);
+			userEntity.setIdfoto(user.getFoto().getId());
 
-			if (archivoClient.CrearArchivo(persona.getFoto()).getStatusCodeValue() == HttpStatus.CREATED.value()) {
-				personaRepository.save(personaEntity);
-				if (!personaRepository.existsById(persona.getId())) {
-					archivoClient.EliminarArchivo(persona.getFoto().getId());
+			if (photoClient.CrearArchivo(user.getFoto()).getStatusCodeValue() == HttpStatus.CREATED.value()) {
+				userRepository.save(userEntity);
+				if (!userRepository.existsById(user.getId())) {
+					photoClient.EliminarArchivo(user.getFoto().getId());
 					throw new ErrorException(HttpStatus.BAD_REQUEST,
-							"No se registro nada, fall� en el registro de la persona");
+							"No se registro nada, fallo en el registro del user");
 				}
 			} else {
-				throw new ErrorException(HttpStatus.BAD_REQUEST, "No se registro nada, fall� en el regisro de la foto");
+				throw new ErrorException(HttpStatus.BAD_REQUEST, "No se registro nada, fallo en el regisro de la foto");
 			}
 		}
 	}
 
 	@Override
 	@Transactional
-	public UserDTO updatePersona(UserDTO persona) {
-		// TODO Auto-generated method stub
-		if (personaRepository.existsById(persona.getId())) {
-			UserEntity personaEntity = modelMapper.map(persona, UserEntity.class);
-			personaEntity.setIdfoto(persona.getFoto().getId());
-			if (archivoClient.ActualizArarchivo(persona.getFoto()).getStatusCodeValue() == HttpStatus.OK.value()) {
-				personaRepository.save(personaEntity);
+	public UserDTO updateUser(UserDTO user) {
+		if (userRepository.existsById(user.getId())) {
+			UserEntity userEntity = modelMapper.map(user, UserEntity.class);
+			userEntity.setIdfoto(user.getFoto().getId());
+			if (photoClient.ActualizArarchivo(user.getFoto()).getStatusCodeValue() == HttpStatus.OK.value()) {
+				userRepository.save(userEntity);
 			} else {
 				throw new ErrorException(HttpStatus.BAD_REQUEST,
-						"No se actualiz� nada, fall� actualizaci�n de la foto");
+						"No se actualizo nada, fallo actualizacion de la foto");
 			}
-			return persona;
+			return user;
 		} else {
-			throw new ErrorException(HttpStatus.NOT_FOUND, "No existe la persona");
+			throw new ErrorException(HttpStatus.NOT_FOUND, "No existe el user");
 		}
 	}
 
 	@Override
 	@Transactional
-	public boolean deletePersonaById(Integer id) {
-		// TODO Auto-generated method stub
-		Optional<UserEntity> personaEntity = personaRepository.findById(id);
-		if (personaEntity.isPresent()) {
-			if (archivoClient.EliminarArchivo(personaEntity.get().getIdfoto()).getStatusCodeValue() == HttpStatus.OK
+	public boolean deleteUserById(Integer id) {
+		Optional<UserEntity> userEntity = userRepository.findById(id);
+		if (userEntity.isPresent()) {
+			if (photoClient.EliminarArchivo(userEntity.get().getIdfoto()).getStatusCodeValue() == HttpStatus.OK
 					.value()) {
-				personaRepository.deleteById(id);
+				userRepository.deleteById(id);
 			} else {
-				throw new ErrorException(HttpStatus.BAD_REQUEST, "No se elimin� nada, fall� eliminaci�n de la foto");
+				throw new ErrorException(HttpStatus.BAD_REQUEST, "No se elimino nada, fallo eliminacion de la foto");
 			}
 			return true;
 		} else {
-			throw new ErrorException(HttpStatus.NOT_FOUND, "No existe la persona");
+			throw new ErrorException(HttpStatus.NOT_FOUND, "No existe el user");
 		}
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<UserDTO> findAllPersona() {
-		// TODO Auto-generated method stub
-		List<UserEntity> personaEntityList = personaRepository.findAll();
-		if (personaEntityList.isEmpty()) {
-			throw new ErrorException(HttpStatus.NO_CONTENT, "No existen personas");
+	public List<UserDTO> findAllUser() {
+		List<UserEntity> userEntityList = userRepository.findAll();
+		if (userEntityList.isEmpty()) {
+			throw new ErrorException(HttpStatus.NO_CONTENT, "No existen users");
 		} else {
-			Map<String, UserEntity> personaDTOMap = personaEntityList.stream()
+			Map<String, UserEntity> userDTOMap = userEntityList.stream()
 					.collect(Collectors.toMap(UserEntity::getIdfoto, Function.identity()));
-			List<PhotoDTO> archivoDTOList = archivoClient
-					.ListaDeArchivosIds(new ArrayList<String>(personaDTOMap.keySet())).getBody();
+			List<PhotoDTO> archivoDTOList = photoClient
+					.ListaDeArchivosIds(new ArrayList<>(userDTOMap.keySet())).getBody();
 			if (archivoDTOList == null) {
-				return modelMapper.map(personaEntityList, new TypeToken<List<UserDTO>>() {
+				return modelMapper.map(userEntityList, new TypeToken<List<UserDTO>>() {
 				}.getType());
 			} else {
 				Map<String, PhotoDTO> archivoDTOMap = archivoDTOList.stream()
 						.collect(Collectors.toMap(PhotoDTO::getId, Function.identity()));
-				List<UserDTO> personaDTOList = new ArrayList<UserDTO>();
-				UserDTO personaDTO = null;
-				for (Map.Entry<String, UserEntity> personaEntity : personaDTOMap.entrySet()) {
-					personaDTO = modelMapper.map(personaEntity.getValue(), UserDTO.class);
-					personaDTO.setFoto(archivoDTOMap.get(personaEntity.getValue().getIdfoto()));
-					personaDTOList.add(personaDTO);
+				List<UserDTO> userDTOList = new ArrayList<>();
+				UserDTO userDTO;
+				for (Map.Entry<String, UserEntity> userEntity : userDTOMap.entrySet()) {
+					userDTO = modelMapper.map(userEntity.getValue(), UserDTO.class);
+					userDTO.setFoto(archivoDTOMap.get(userEntity.getValue().getIdfoto()));
+					userDTOList.add(userDTO);
 				}
-				return personaDTOList;
+				return userDTOList;
 			}
 		}
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public boolean isPersonaExist(UserDTO persona) {
-		return personaRepository.existsById(persona.getId());
+	public boolean isUserExist(UserDTO user) {
+		return userRepository.existsById(user.getId());
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public UserDTO findByDocumentotipoAndDocumentonumero(int idDocumentoTipoDTO, String documentoNumero) {
-		// TODO Auto-generated method stub
-		Optional<UserEntity> personaEntity = personaRepository.findByDocumentotipoAndDocumentonumero(
+	public UserDTO findByDocumentotipoAndDocumentonumero(String DocumentoTipoDTO, String documentoNumero) {
+		Optional<UserEntity> userEntity = userRepository.findByDocumentotipoAndDocumentonumero(
 				documentoNumero, documentoNumero);
-		if (personaEntity.isPresent()) {
-			UserDTO personaDTO = modelMapper.map(personaEntity.get(), UserDTO.class);
-			personaDTO.setFoto(archivoClient.BuscarArchivo(personaEntity.get().getIdfoto()).getBody());
-			return personaDTO;
+		if (userEntity.isPresent()) {
+			UserDTO userDTO = modelMapper.map(userEntity.get(), UserDTO.class);
+			userDTO.setFoto(photoClient.BuscarArchivo(userEntity.get().getIdfoto()).getBody());
+			return userDTO;
 		} else {
-			throw new ErrorException(HttpStatus.NOT_FOUND, "No existe la persona");
+			throw new ErrorException(HttpStatus.NOT_FOUND, "No existe el user");
 		}
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<UserDTO> findByEdadGreaterThanEqual(int edad) {
-		// TODO Auto-generated method stub
-		List<UserEntity> personaEntityList = personaRepository.findByEdadGreaterThanEqual(edad);
-		if (personaEntityList.isEmpty()) {
-			throw new ErrorException(HttpStatus.NO_CONTENT, "No existen personas");
+	public List<UserDTO> findByAgeGreaterThanEqual(int edad) {
+		List<UserEntity> userEntityList = userRepository.findByEdadGreaterThanEqual(edad);
+		if (userEntityList.isEmpty()) {
+			throw new ErrorException(HttpStatus.NO_CONTENT, "No existen users");
 		} else {
-			Map<String, UserEntity> personaDTOMap = personaEntityList.stream()
+			Map<String, UserEntity> userDTOMap = userEntityList.stream()
 					.collect(Collectors.toMap(UserEntity::getIdfoto, Function.identity()));
-			List<PhotoDTO> archivoDTOList = archivoClient
-					.ListaDeArchivosIds(new ArrayList<String>(personaDTOMap.keySet())).getBody();
+			List<PhotoDTO> archivoDTOList = photoClient
+					.ListaDeArchivosIds(new ArrayList<>(userDTOMap.keySet())).getBody();
 			if (archivoDTOList == null) {
-				return modelMapper.map(personaEntityList, new TypeToken<List<UserDTO>>() {
+				return modelMapper.map(userEntityList, new TypeToken<List<UserDTO>>() {
 				}.getType());
 			} else {
 				Map<String, PhotoDTO> archivoDTOMap = archivoDTOList.stream()
 						.collect(Collectors.toMap(PhotoDTO::getId, Function.identity()));
-				List<UserDTO> personaDTOList = new ArrayList<UserDTO>();
-				UserDTO personaDTO = null;
-				for (Map.Entry<String, UserEntity> personaEntity : personaDTOMap.entrySet()) {
-					personaDTO = modelMapper.map(personaEntity.getValue(), UserDTO.class);
-					personaDTO.setFoto(archivoDTOMap.get(personaEntity.getValue().getIdfoto()));
-					personaDTOList.add(personaDTO);
+				List<UserDTO> userDTOList = new ArrayList<>();
+				UserDTO userDTO;
+				for (Map.Entry<String, UserEntity> userEntity : userDTOMap.entrySet()) {
+					userDTO = modelMapper.map(userEntity.getValue(), UserDTO.class);
+					userDTO.setFoto(archivoDTOMap.get(userEntity.getValue().getIdfoto()));
+					userDTOList.add(userDTO);
 				}
-				return personaDTOList;
+				return userDTOList;
 			}
 		}
 	}

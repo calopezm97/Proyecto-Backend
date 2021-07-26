@@ -8,18 +8,18 @@ public interface UserService {
 
 	UserDTO findById(Integer id);
 
-	void savePersona(UserDTO persona);
+	void saveUser(UserDTO User);
 
-	UserDTO updatePersona(UserDTO persona);
+	UserDTO updateUser(UserDTO User);
 
-	boolean deletePersonaById(Integer id);
+	boolean deleteUserById(Integer id);
 
-	List<UserDTO> findAllPersona();
+	List<UserDTO> findAllUser();
 
-	public boolean isPersonaExist(UserDTO persona);
+	boolean isUserExist(UserDTO User);
 
-	UserDTO findByDocumentotipoAndDocumentonumero(int idDocumentoTipoDTO, String documentoNumero);
+	UserDTO findByDocumentotipoAndDocumentonumero(String DocumentoTipoDTO, String documentoNumero);
 
-	List<UserDTO> findByEdadGreaterThanEqual(int edad);
+	List<UserDTO> findByAgeGreaterThanEqual(int edad);
 
 }

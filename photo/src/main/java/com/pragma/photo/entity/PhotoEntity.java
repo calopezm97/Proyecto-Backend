@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "archivo")
+@Document(collection = "photo")
 public class PhotoEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;

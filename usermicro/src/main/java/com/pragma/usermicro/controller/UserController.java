@@ -32,49 +32,49 @@ public class UserController {
 	private UserService userService;
 
 	@GetMapping(value = "/")
-	public ResponseEntity<List<UserDTO>> ListaDePersonas() {
-		return new ResponseEntity<List<UserDTO>>(userService.findAllPersona(), HttpStatus.OK);
+	public ResponseEntity<List<UserDTO>> ListaDeUsers() {
+		return new ResponseEntity<List<UserDTO>>(userService.findAllUser(), HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/{id}")public ResponseEntity<UserDTO> BuscarPersona(
-			@ApiParam(value = "Identificador de la persona", required = true) @PathVariable("id") int id) {
+	@GetMapping(value = "/{id}")public ResponseEntity<UserDTO> BuscarUser(
+			@ApiParam(value = "Identificador de la User", required = true) @PathVariable("id") int id) {
 		return new ResponseEntity<UserDTO>(userService.findById(id), HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/{idTipoDeDocumento}/{numeroDeDocumento}")
-	public ResponseEntity<UserDTO> BuscarPersona(
-			@ApiParam(value = "Id del Tipo de documento", required = true) @PathVariable("idTipoDeDocumento") int idTipoDeDocumento,
-			@ApiParam(value = "N�mero de documento", required = true) @PathVariable("numeroDeDocumento") String numeroDeDocumento) {
+	public ResponseEntity<UserDTO> BuscarUser(
+			@ApiParam(value = "Id del Tipo de documento", required = true) @PathVariable("idTipoDeDocumento") String tipoDeDocumento,
+			@ApiParam(value = "Numero de documento", required = true) @PathVariable("numeroDeDocumento") String numeroDeDocumento) {
 		return new ResponseEntity<UserDTO>(
-				userService.findByDocumentotipoAndDocumentonumero(idTipoDeDocumento, numeroDeDocumento),
+				userService.findByDocumentotipoAndDocumentonumero(tipoDeDocumento, numeroDeDocumento),
 				HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/Edad/{edad}")
-	public ResponseEntity<List<UserDTO>> BuscarPersonaa(
+	public ResponseEntity<List<UserDTO>> BuscarUsera(
 			@ApiParam(value = "Edad para la condici�n", required = true) @PathVariable("edad") int edad) {
-		return new ResponseEntity<List<UserDTO>>(userService.findByEdadGreaterThanEqual(edad), HttpStatus.OK);
+		return new ResponseEntity<List<UserDTO>>(userService.findByAgeGreaterThanEqual(edad), HttpStatus.OK);
 	}
 
 	@PostMapping(value = "/")
-	public ResponseEntity<Void> CrearPersona(
-			@ApiParam(value = "Un JSON de persona", required = true) @Valid @RequestBody UserDTO persona)
+	public ResponseEntity<Void> CrearUser(
+			@ApiParam(value = "Un JSON de User", required = true) @Valid @RequestBody UserDTO User)
 			throws IOException {
-		userService.savePersona(persona);
+		userService.saveUser(User);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 
 	@PutMapping(value = "/")
-	public ResponseEntity<Void> ActualizarPersona(
-			@ApiParam(value = "Un JSON de persona", required = true) @RequestBody UserDTO persona) {
-		userService.updatePersona(persona);
+	public ResponseEntity<Void> ActualizarUser(
+			@ApiParam(value = "Un JSON de User", required = true) @RequestBody UserDTO User) {
+		userService.updateUser(User);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Void> EliminarPersona(
-			@ApiParam(value = "Identificador de la persona", required = true) @PathVariable("id") int id) {
-		userService.deletePersonaById(id);
+	public ResponseEntity<Void> EliminarUser(
+			@ApiParam(value = "Identificador de la User", required = true) @PathVariable("id") int id) {
+		userService.deleteUserById(id);
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
