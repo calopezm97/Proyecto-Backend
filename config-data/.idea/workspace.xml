@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8712e6de-aef4-49a0-b5b6-7f41b9a6d08b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usermicro.yml" beforeDir="false" afterPath="$PROJECT_DIR$/usermicro.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../photo/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../photo/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../photo/src/test/java/com/pragma/photo/PhotoApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../photo/src/test/java/com/pragma/photo/PhotoApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

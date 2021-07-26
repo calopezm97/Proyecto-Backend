@@ -27,9 +27,9 @@ class PhotoApplicationTests {
 	@BeforeEach
 	public void DatosBaseParaLosTest() {
 		MockitoAnnotations.openMocks(this);
-		PhotoEntity photoEntity1 = PhotoEntity.builder().id("60d4c1fdaba981f736e01d7d").data("Mi fotoooo1")
+		PhotoEntity photoEntity1 = PhotoEntity.builder().id("60d4c1fdaba981f736e01d7d").data("Foto1")
 				.tipo(".jpg").build();
-		PhotoEntity photoEntity2 = PhotoEntity.builder().id("60d4c1fdaba981f736e01d7e").data("Mi fotoooo2")
+		PhotoEntity photoEntity2 = PhotoEntity.builder().id("60d4c1fdaba981f736e01d7e").data("Foto2")
 				.tipo(".jpg").build();
 		List<PhotoEntity> photoEntityList = new ArrayList<>();
 		photoEntityList.add(photoEntity1);
