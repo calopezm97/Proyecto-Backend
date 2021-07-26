@@ -1,5 +1,5 @@
 server:
-  port: 8084
+  port: 8080
   error:
     include-message: always
     include-binding-errors: always
@@ -19,10 +19,10 @@ spring:
           uri: lb://photo
           predicates:
             - Path=/photo/**
-        - id: user
-          uri: lb://user
+        - id: usermicro
+          uri: lb://usermicro
           predicates:
-            - Path=/user/**
+            - Path=/usermicro/**
   sleuth:
     traceId128: true
     sampler:

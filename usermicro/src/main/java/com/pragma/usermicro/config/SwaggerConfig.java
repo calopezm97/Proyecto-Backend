@@ -24,7 +24,7 @@ public class SwaggerConfig {
 
     private ApiInfo getApiInfo() {
         return new ApiInfo("micro usuarios CRUD", "detail of micro", "1.0", "URL",
-                new Contact("Carlos Lopez", "URLContact", "Email"), "License", "URLLicense",
+                new Contact("Carlos Lopez", "URLContact", "carlos.lopez@pragma.com.co"), "License", "URLLicense",
                 Collections.emptyList());
     }
 

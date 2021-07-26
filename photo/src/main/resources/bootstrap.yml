@@ -5,10 +5,6 @@ spring:
     name: photo
   cloud:
     config:
-      uri: http://${LOCALHOST}:8080
+      uri: http://localhost:8080
       username: root
       password: s3cr3t
-  boot:
-    admin:
-      client:
-        url: http://${LOCALHOST}:8090

@@ -12,7 +12,7 @@ logging:
 spring:
   data:
     mongodb:
-      host: ${LOCALHOST}
+      host: localhost
       port: 27017
       database: photo
   sleuth:
@@ -24,13 +24,13 @@ spring:
       client:
         instance:
           prefer-ip: true
-          service-url: http://${LOCALHOST}:8077/
+          service-url: http://localhost:8090/
 eureka:
   instance:
       preferIpAddress: true
   client:
     serviceUrl:
-      defaultZone: http://${LOCALHOST}:8079/eureka/
+      defaultZone: http://localhost:8099/eureka/
 management:
   endpoints:
     web:
