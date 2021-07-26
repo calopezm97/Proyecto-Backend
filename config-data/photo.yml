@@ -1,14 +1,6 @@
 server:
-  error:
-    include-message: always
-    include-binding-errors: always
-logging:
-  level:
-    org:
-      springframework:
-        web:
-          servlet:
-            DispatcherServlet: DEBUG
+  port: 8092
+
 spring:
   data:
     mongodb:

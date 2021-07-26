@@ -1,8 +1,6 @@
 server:
-  port: 8084
-  error:
-    include-message: always
-    include-binding-errors: always
+  port: 8080
+
 eureka:
   client:
     serviceUrl:

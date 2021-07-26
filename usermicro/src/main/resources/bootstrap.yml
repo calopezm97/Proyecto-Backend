@@ -5,7 +5,7 @@ spring:
     name: usermicro
   cloud:
     config:
-      uri: http://localhost:8080
+      uri: http://localhost:8085
       username: root
       password: s3cr3t
   boot:
