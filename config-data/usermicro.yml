@@ -20,6 +20,7 @@ spring:
   boot:
     admin:
       client:
+
         instance:
           prefer-ip: true
           service-url: http://localhost:8090/
