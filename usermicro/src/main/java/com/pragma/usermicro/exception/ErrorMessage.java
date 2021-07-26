@@ -1,4 +1,4 @@
-package apragma.practica.exception;
+package com.pragma.usermicro.exception;
 
 import java.util.Date;
 

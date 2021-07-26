@@ -11,6 +11,7 @@ import com.pragma.usermicro.client.PhotoClient;
 import com.pragma.usermicro.dto.PhotoDTO;
 import com.pragma.usermicro.dto.UserDTO;
 import com.pragma.usermicro.entity.UserEntity;
+import com.pragma.usermicro.exception.ErrorException;
 import com.pragma.usermicro.repository.UserRepository;
 import com.pragma.usermicro.service.UserService;
 import org.modelmapper.ModelMapper;
@@ -19,7 +20,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import apragma.practica.exception.ErrorException;
 import lombok.RequiredArgsConstructor;
 
 @Service
