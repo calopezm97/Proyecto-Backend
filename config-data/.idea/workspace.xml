@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8712e6de-aef4-49a0-b5b6-7f41b9a6d08b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/controller/PhotoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/entity/PhotoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../photo/src/main/java/com/pragma/photo/entity/PhotoEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../photo/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../photo/src/main/resources/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/service/use/UserServiceUse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usermicro/src/main/java/com/pragma/usermicro/service/use/UserServiceUse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../usermicro/src/test/java/com/pragma/usermicro/UsermicroApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../usermicro/src/test/java/com/pragma/usermicro/UsermicroApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

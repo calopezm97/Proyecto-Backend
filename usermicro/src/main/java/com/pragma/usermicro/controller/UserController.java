@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiParam;
 
 @RestController
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/usermicro")
 public class UserController {
 
 	@Autowired
@@ -36,7 +36,8 @@ public class UserController {
 		return new ResponseEntity<List<UserDTO>>(userService.findAllUser(), HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/{id}")public ResponseEntity<UserDTO> BuscarUser(
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<UserDTO> BuscarUser(
 			@ApiParam(value = "Identificador de la User", required = true) @PathVariable("id") int id) {
 		return new ResponseEntity<UserDTO>(userService.findById(id), HttpStatus.OK);
 	}
